@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app:cached
+      - bundle-volume:/usr/src/app/vendor/bundle
+      - node-volume:/usr/src/app/node_modules
+
+  nginx:
+    image: nginx:1.17.9-alpine
+    ports:
+      - '80:80'
+    volumes_from:
+      - app:/usr/src/app
+    environment:
+      - TZ=Asia/Tokyo
+
+volumes:
+  node-volume:
+  bundle-volume:
