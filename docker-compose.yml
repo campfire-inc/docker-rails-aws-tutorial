@@ -2,10 +2,7 @@ version: "3.4"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: app
+    build: .
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app:cached
@@ -16,9 +13,8 @@ services:
     image: nginx:1.17.9-alpine
     ports:
       - '80:80'
-    volumes_from:
-      - app:/usr/src/app
-      - app:/etc/nginx/
+    volumes:
+      - .:/usr/src/app:cached
     environment:
       - TZ=Asia/Tokyo
 
