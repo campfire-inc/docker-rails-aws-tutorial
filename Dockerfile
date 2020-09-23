@@ -10,4 +10,6 @@ RUN bundle install
 
 COPY . .
 
+ENV RAILS_ENV production
+
 CMD ["bundle", "exec", "rails", "s"]
