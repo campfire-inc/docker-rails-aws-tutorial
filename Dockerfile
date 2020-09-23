@@ -1,8 +1,5 @@
 FROM ruby:2.6.3-slim-buster
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
-
 WORKDIR /usr/src/app
 
 RUN apt-get update -qq && \
@@ -12,7 +9,7 @@ RUN npm install -g yarn
 
 COPY Gemfile Gemfile.lock ./
 
-RUN bundle install --without test development --jobs 4 --retry 3 --deployment
+RUN bundle install --without test development --jobs 4 --retry 3
 
 COPY . .
 
