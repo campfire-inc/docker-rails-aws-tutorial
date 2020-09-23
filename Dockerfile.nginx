@@ -1,0 +1,12 @@
+FROM nginx:1.17.9-alpine
+
+RUN apk --update --no-cache add gettext tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/*
+
+ADD docker/etc/nginx/*.conf /etc/nginx/
+ADD docker/etc/nginx/sites-enabled/*.conf /etc/nginx/sites-enabled/
+
+RUN mkdir -p /usr/src/app/public
+COPY ./public /usr/src/app/public
