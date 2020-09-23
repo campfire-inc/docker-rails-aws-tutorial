@@ -18,6 +18,7 @@ services:
       - '80:80'
     volumes_from:
       - app:/usr/src/app
+      - app:/etc/nginx/
     environment:
       - TZ=Asia/Tokyo
 

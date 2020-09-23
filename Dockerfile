@@ -12,4 +12,7 @@ COPY . .
 
 ENV RAILS_ENV production
 
+ADD docker/nginx/*.conf /etc/nginx/
+ADD docker/nginx/sites-enabled/*.conf /etc/nginx/sites-enabled/
+
 CMD ["bundle", "exec", "rails", "s"]
