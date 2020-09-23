@@ -8,6 +8,7 @@ services:
       - .:/usr/src/app:cached
       - bundle-volume:/usr/src/app/vendor/bundle
       - node-volume:/usr/src/app/node_modules
+      - /usr/src/app/tmp/pids/
 
   nginx:
     image: nginx:1.17.9-alpine
@@ -15,6 +16,8 @@ services:
       - '80:80'
     volumes:
       - .:/usr/src/app:cached
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites-enabled/:/etc/nginx/sites-enabled/
     environment:
       - TZ=Asia/Tokyo
 
