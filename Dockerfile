@@ -14,6 +14,7 @@ RUN bundle install --without test development --jobs 4 --retry 3 --deployment
 COPY . .
 
 RUN mkdir -p ./tmp/sockets ./tmp/pids
+RUN rm -rf ./tmp/pids/*
 
 ENV RAILS_ENV production
 # DO NOT insert this line in git with actual production.
