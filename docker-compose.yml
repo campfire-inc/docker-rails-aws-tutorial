@@ -11,13 +11,12 @@ services:
       - /usr/src/app/tmp/pids/
 
   nginx:
-    image: nginx:1.17.9-alpine
+    build: .
+    command: 'nginx'
     ports:
       - '80:80'
     volumes:
       - .:/usr/src/app:cached
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./docker/nginx/sites-enabled/:/etc/nginx/sites-enabled/
     environment:
       - TZ=Asia/Tokyo
 
