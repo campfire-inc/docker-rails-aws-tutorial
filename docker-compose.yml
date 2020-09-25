@@ -4,6 +4,7 @@ services:
   app:
     build: .
     working_dir: /usr/src/app
+    command: 'bundle exec rails s'
     volumes:
       - .:/usr/src/app:cached
       - bundle-volume:/usr/src/app/vendor/bundle
