@@ -3,7 +3,7 @@ FROM ruby:2.6.3-slim-buster
 WORKDIR /usr/src/app
 
 RUN apt-get update -qq && \
-    apt-get install -y nodejs npm libsqlite3-dev build-essential openssl
+    apt-get install -y nodejs npm libsqlite3-dev build-essential openssl nginx
 
 RUN npm install -g yarn
 
@@ -23,3 +23,5 @@ ADD docker/nginx/*.conf /etc/nginx/
 ADD docker/nginx/sites-enabled/*.conf /etc/nginx/sites-enabled/
 
 CMD ["bundle", "exec", "rails", "s"]
+
+EXPOSE 80

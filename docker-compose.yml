@@ -11,7 +11,7 @@ services:
       - /usr/src/app/tmp/pids/
 
   nginx:
-    image: nginx:1.17.9-alpine
+    build: .
     ports:
       - '80:80'
     volumes:
