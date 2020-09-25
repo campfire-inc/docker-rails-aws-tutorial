@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 RUN apt-get update -qq && \
     apt-get install -y nodejs npm libsqlite3-dev build-essential openssl nginx
 
+RUN useradd --shell /sbin/nologin nginx
 RUN npm install -g yarn
 
 COPY Gemfile Gemfile.lock ./
