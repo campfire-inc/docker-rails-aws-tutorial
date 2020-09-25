@@ -12,6 +12,7 @@ services:
 
   nginx:
     build: .
+    command: 'nginx -g daemon off'
     ports:
       - '80:80'
     volumes:
