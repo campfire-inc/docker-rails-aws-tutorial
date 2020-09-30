@@ -10,6 +10,8 @@ services:
       - bundle-volume:/usr/src/app/vendor/bundle
       - node-volume:/usr/src/app/node_modules
       - /usr/src/app/tmp/pids/
+    environment:
+      - MY_NAME=fixme
 
   nginx:
     build: .
