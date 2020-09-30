@@ -26,6 +26,8 @@ ADD docker/nginx/sites-enabled/*.conf /etc/nginx/sites-enabled/
 RUN useradd --shell /sbin/nologin nginx && \
     echo "" > /etc/nginx/sites-enabled/default
 
+RUN nginx -t
+
 RUN bundle exec rake assets:precompile
 
 EXPOSE 80
