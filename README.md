@@ -1,2 +1,2 @@
-# docker-rails-terraform-tutorial
-Docker image for terraform tutorial with rails sample code.
+# docker-rails-aws-tutorial
+Docker image for aws tutorial with rails sample code.
