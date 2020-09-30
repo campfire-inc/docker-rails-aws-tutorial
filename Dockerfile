@@ -23,6 +23,8 @@ ENV RAILS_MASTER_KEY a7f9041eb7389aa2ee89391707e45bbb
 ADD docker/nginx/*.conf /etc/nginx/
 ADD docker/nginx/sites-enabled/*.conf /etc/nginx/sites-enabled/
 
+RUN nginx -t
+
 RUN useradd --shell /sbin/nologin nginx && \
     echo "" > /etc/nginx/sites-enabled/default
 
